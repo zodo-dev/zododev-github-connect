@@ -5,6 +5,7 @@ import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 import svgr from '@svgr/rollup';
 import url from '@rollup/plugin-url';
+import json from '@rollup/plugin-json';
 import copy from 'rollup-plugin-copy';
 import { packageVersions } from './package.json';
 
@@ -47,6 +48,7 @@ export default [
           },
         ],
       }),
+      json(),
       commonjs(),
       external(),
       resolve({
