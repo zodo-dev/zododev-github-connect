@@ -10,7 +10,7 @@ import copy from 'rollup-plugin-copy';
 import { packageVersions } from './package.json';
 
 const SERVER_PACKAGE = 'dist/github-connect-server';
-const FRONTEND_PACKAGE = 'dist/github-connect';
+const FRONTEND_PACKAGE = 'dist/github-connect-react';
 
 export default [
   {

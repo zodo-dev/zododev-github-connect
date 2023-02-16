@@ -15,8 +15,9 @@
     "build-storybook": "storybook build -o storybook-dist/storybook-static",
     "build:lib": "rollup -c",
     "build:storybook-full": "npm run build-storybook && rollup -c rollup-zcloud.config.js",
-    "publish:lib-server": "npm run build:lib && npm publish --dry-run --access public ./dist/github-connect-server",
-    "publish:lib-react": "npm run build:lib && npm publish --dry-run --access public ./dist/github-connect"
+    "build:clear-dist": "rm -rf ./dist",
+    "publish:lib-server": "npm run build:clear-dist && npm run build:lib && npm publish --dry-run --access public ./dist/github-connect-server",
+    "publish:lib-react": "npm run build:clear-dist && npm run build:lib && npm publish --dry-run --access public ./dist/github-connect-react"
   },
   "author": "Edimar Cardoso <edimarlnx@gmail.com>",
   "license": "MIT",
