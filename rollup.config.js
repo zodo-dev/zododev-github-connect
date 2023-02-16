@@ -4,6 +4,7 @@ import external from 'rollup-plugin-peer-deps-external';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 import svgr from '@svgr/rollup';
+import url from '@rollup/plugin-url';
 import copy from 'rollup-plugin-copy';
 import { packageVersions } from './package.json';
 
@@ -12,7 +13,7 @@ const FRONTEND_PACKAGE = 'dist/github-connect';
 
 export default [
   {
-    input: './src/server/github-connect.cjs',
+    input: './src/server/github-connect.js',
     output: [
       {
         file: `${SERVER_PACKAGE}/index.js`,
@@ -51,7 +52,7 @@ export default [
       resolve({
         preferBuiltins: true,
         //mainFields: ['browser'],
-        extensions: ['.js', '.cjs'],
+        extensions: ['.js'],
       }),
       terser(),
     ],
@@ -96,13 +97,14 @@ export default [
           },
         ],
       }),
-      svgr(),
+      url(),
+      svgr({ icon: true }),
       commonjs(),
       external(),
       resolve({
         preferBuiltins: true,
         mainFields: ['browser'],
-        extensions: ['.js', '.jsx', '.cjs'],
+        extensions: ['.js', '.jsx'],
       }),
       terser(),
     ],

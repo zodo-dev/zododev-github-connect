@@ -1,4 +1,4 @@
-FROM zododevhub/nodejs:14 as builder
+FROM zododevhub/nodejs:16 as builder
 
 USER root
 COPY --chown=zcloud:zcloud . /workspace/app
@@ -8,7 +8,7 @@ USER zcloud
 WORKDIR /workspace/app
 RUN npm install && npm run build:storybook-full
 
-FROM docker.io/library/node:14-alpine
+FROM docker.io/library/node:16-alpine
 
 ENV APP_ID = ""
 ENV CLIENT_ID = ""

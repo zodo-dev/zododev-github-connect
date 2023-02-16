@@ -1,5 +1,5 @@
-module.exports = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+const config = {
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   staticDirs: ['../src/stories/styles'],
   addons: [
     '@storybook/addon-links',
@@ -25,9 +25,9 @@ module.exports = {
       },
     },
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: 'webpack5',
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {},
   },
   env: (config) => ({
     ...config,
@@ -40,7 +40,11 @@ module.exports = {
         fullySpecified: false,
       },
     });
-
     return config;
   },
+  docs: {
+    autodocs: true,
+  },
 };
+
+export default config;

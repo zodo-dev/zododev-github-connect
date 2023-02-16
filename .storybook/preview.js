@@ -1,6 +1,6 @@
-require('../src/stories/styles/tailwind.scss');
+import '../src/stories/styles/tailwind.scss';
 
-module.exports = {
+export default {
   parameters: {
     actions: { argTypesRegex: '^on.*' },
     controls: {

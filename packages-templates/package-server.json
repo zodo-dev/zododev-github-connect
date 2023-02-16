@@ -10,7 +10,8 @@
   "author": "Edimar Cardoso <edimarlnx@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@octokit/oauth-app": "^4.2.0"
+    "@octokit/oauth-app": "^4.2.0",
+    "express": "^4.18.2"
   },
   "dependencies": {}
 }

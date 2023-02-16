@@ -35,7 +35,7 @@ export default [
       external(),
       resolve({
         preferBuiltins: true,
-        extensions: ['.js', '.cjs'],
+        extensions: ['.js'],
       }),
     ],
   },

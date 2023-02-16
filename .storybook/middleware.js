@@ -1,12 +1,13 @@
-const dotenv = require('dotenv');
-const path = require('node:path');
+import dotenv from 'dotenv';
+import path from 'node:path';
 
-const { connectMiddleware } = require('../src/server/github-connect.cjs');
+import { connectMiddleware } from '../src/server/github-connect.js';
+
 dotenv.config({
   path: path.resolve(process.cwd(), `.env.${process.env.NODE_ENV}`),
 });
 
-module.exports = (router) => {
+export default (router) => {
   const { APP_ID, CLIENT_ID, CLIENT_SECRET } = process.env;
   connectMiddleware({
     app: router,

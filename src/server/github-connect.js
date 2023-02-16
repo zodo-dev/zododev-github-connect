@@ -1,4 +1,5 @@
 const { OAuthApp, handleRequest } = require('@octokit/oauth-app');
+const express = require('express');
 
 const closeModalScript = `
     <script type="application/javascript">
@@ -91,21 +92,21 @@ class GithubConnectServer {
   }
 }
 
-module.exports = {
-  connectMiddleware: ({
-    app,
+export const connectMiddleware = ({
+  app,
+  appId,
+  clientId,
+  clientSecret,
+  pathPrefix = '/api/github/oauth',
+}) => {
+  console.info('Connect Github backend');
+  const connectApp = new GithubConnectServer({
+    pathPrefix,
     appId,
     clientId,
     clientSecret,
-    pathPrefix = '/api/github/oauth',
-  }) => {
-    console.info('Connect Github backend');
-    const connectApp = new GithubConnectServer({
-      pathPrefix,
-      appId,
-      clientId,
-      clientSecret,
-    });
-    connectApp.connect(app);
-  },
+  });
+  const expressApp = express();
+  connectApp.connect(expressApp);
+  app.use(expressApp);
 };
