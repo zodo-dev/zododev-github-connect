@@ -1,0 +1,16 @@
+{
+  "name": "@zodo-dev/github-connect-server",
+  "version": "__VERSION__",
+  "description": "Github Connect Server Package",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.es.js",
+  "files": ["index.js", "index.es.js"],
+  "private": false,
+  "author": "Edimar Cardoso <edimarlnx@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@octokit/oauth-app": "^4.2.0"
+  },
+  "dependencies": {}
+}

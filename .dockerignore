@@ -1,0 +1,7 @@
+dist/
+node_modules/
+.idea/
+.git/
+storybook-static/
+storybook-dist/
+.env.*

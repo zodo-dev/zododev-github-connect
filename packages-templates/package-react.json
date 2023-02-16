@@ -1,0 +1,20 @@
+{
+  "name": "@zodo-dev/github-connect-react",
+  "version": "__VERSION__",
+  "description": "Github Connect React Package",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.es.js",
+  "files": ["index.js", "index.es.js"],
+  "private": false,
+  "author": "Edimar Cardoso <edimarlnx@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@octokit/oauth-app": "^4.2.0",
+    "octokit": "^2.0.14",
+    "classnames": "^2.3.2"
+  },
+  "dependencies": {}
+}
