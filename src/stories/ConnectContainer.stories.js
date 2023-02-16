@@ -11,7 +11,6 @@ const Template = (args) => {
   const onChangeData = (key, value) => {
     const newObjData = { ...objData, [key]: value };
     setObjectData(newObjData);
-    console.log({ newObjData });
   };
   return (
     <ConnectContainer

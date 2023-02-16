@@ -50,13 +50,18 @@ export const Select = ({
     setListOpened(false);
     onChange(value);
   };
+
   const onBlur = (ev) => {
-    if (ev.relatedTarget) {
-      ev.stopPropagation();
-      return;
+    const { relatedTarget } = ev || {};
+    if (relatedTarget) {
+      if (relatedTarget?.dataset?.itemType) {
+        ev.stopPropagation();
+        return;
+      }
     }
     setListOpened(false);
   };
+
   return (
     <div className={classnames(mainClass, className)} onBlur={onBlur}>
       <SelectedOption
@@ -70,6 +75,7 @@ export const Select = ({
         role="listbox"
         aria-labelledby="listbox-label"
         aria-activedescendant={`listbox-option-${selectedValue}`}
+        data-item-type="option"
       >
         {options?.map(({ icon, value, label }) => (
           <li
