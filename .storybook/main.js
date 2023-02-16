@@ -1,3 +1,5 @@
+import postcss from 'postcss';
+
 const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   staticDirs: ['../src/stories/styles'],
@@ -11,7 +13,7 @@ const config = {
       name: 'storybook-addon-sass-postcss',
       options: {
         postcssLoaderOptions: {
-          implementation: require('postcss'),
+          implementation: postcss,
         },
         loadSassAfterPostCSS: true,
       },
@@ -20,7 +22,7 @@ const config = {
       name: '@storybook/addon-postcss',
       options: {
         postcssLoaderOptions: {
-          implementation: require('postcss'),
+          implementation: postcss,
         },
       },
     },

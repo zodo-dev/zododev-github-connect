@@ -1,5 +1,5 @@
-const { OAuthApp, handleRequest } = require('@octokit/oauth-app');
-const express = require('express');
+import { OAuthApp, handleRequest } from '@octokit/oauth-app';
+import express from 'express';
 
 const closeModalScript = `
     <script type="application/javascript">
