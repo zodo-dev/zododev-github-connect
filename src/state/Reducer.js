@@ -67,7 +67,8 @@ const ACTIONS_EVENTS = {
 };
 
 const fireEvent = (state, eventName, value) => {
-  const evt = state[eventName];
+  const evt = state?.events?.current[eventName];
+  console.log(`fire: ${eventName}`, value);
   if (!evt || typeof evt !== 'function') {
     return;
   }

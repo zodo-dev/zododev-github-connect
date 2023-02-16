@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ConnectContainer } from '../Components/ConnectContainer.js';
 
-const Template = (args) => <ConnectContainer {...args} />;
+const Template = (args) => {
+  const [objData, setObjectData] = useState({
+    owner: undefined,
+    repo: undefined,
+    branch: undefined,
+  });
+
+  const onChangeData = (key, value) => {
+    const newObjData = { ...objData, [key]: value };
+    setObjectData(newObjData);
+    console.log({ newObjData });
+  };
+  return (
+    <ConnectContainer
+      {...args}
+      onSelectOwner={(owner) => onChangeData('owner', owner)}
+      onSelectRepo={(repo) => onChangeData('repo', repo)}
+      onSelectBranch={(branch) => onChangeData('branch', branch)}
+    />
+  );
+};
 
 export const ConnectContainerTest = Template.bind({});
 ConnectContainerTest.args = {};

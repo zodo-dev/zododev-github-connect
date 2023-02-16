@@ -1,5 +1,5 @@
 import { useContext, useCallback } from 'react';
-import { Context } from '../state/Store';
+import { Context } from '../state/Context';
 import { ACTIONS } from '../state/Reducer.js';
 import { getGithubUserData, logoutGithub } from '../utils/utils.js';
 

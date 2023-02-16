@@ -1,5 +1,5 @@
 import { useContext, useCallback, useEffect } from 'react';
-import { Context } from '../state/Store';
+import { Context } from '../state/Context';
 import { userListOwners } from '../utils/gh-utils.js';
 import { ACTIONS } from '../state/Reducer.js';
 

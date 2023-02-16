@@ -71,7 +71,7 @@ export const Select = ({
         aria-labelledby="listbox-label"
         aria-activedescendant={`listbox-option-${selectedValue}`}
       >
-        {options.map(({ icon, value, label }) => (
+        {options?.map(({ icon, value, label }) => (
           <li
             key={value}
             className={classnames('list-option', {

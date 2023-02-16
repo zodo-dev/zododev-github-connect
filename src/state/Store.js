@@ -1,8 +1,7 @@
-import React, { createContext, useReducer } from 'react';
+import React, { useEffect, useReducer, useRef } from 'react';
 import { Reducer } from './Reducer';
 import { loadUserDataFromCookie } from '../utils/utils.js';
-
-export const Context = createContext({});
+import { Context } from './Context.js';
 
 export const Store = ({
   children,
@@ -21,12 +20,9 @@ export const Store = ({
   redirectUrl,
   logoutUrl,
 }) => {
-  const [state, dispatch] = useReducer(Reducer, {}, () => {
-    return {
-      userData: loadUserDataFromCookie(),
-      selectedOwner,
-      selectedRepo,
-      selectedBranch,
+  const events = useRef({});
+  useEffect(() => {
+    events.current = {
       onUserData,
       onListOwners,
       onListRepos,
@@ -35,6 +31,24 @@ export const Store = ({
       onSelectRepo,
       onSelectBranch,
       onReset,
+    };
+  }, [
+    onUserData,
+    onListOwners,
+    onListRepos,
+    onListBranchs,
+    onSelectOwner,
+    onSelectRepo,
+    onSelectBranch,
+    onReset,
+  ]);
+  const [state, dispatch] = useReducer(Reducer, {}, () => {
+    return {
+      events,
+      userData: loadUserDataFromCookie(),
+      selectedOwner,
+      selectedRepo,
+      selectedBranch,
       baseUrl,
       redirectUrl,
       logoutUrl,

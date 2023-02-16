@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { defaultConfig } from './config.js';
 import { useOwner } from '../hooks/useOwner.js';
@@ -23,11 +23,12 @@ export const ListOwners = ({ config = defaultConfig }) => {
     const owner = owners?.find(({ id }) => id === selectedId);
     selectOwner(owner);
   };
-  const options = owners?.map(({ id, avatarUrl, login }) => ({
-    value: id,
-    icon: avatarUrl,
-    label: login,
-  }));
+  const options =
+    owners?.map(({ id, avatarUrl, login }) => ({
+      value: id,
+      icon: avatarUrl,
+      label: login,
+    })) || [];
   return (
     <div className={classNames(mainClass, className)}>
       <Select
