@@ -1,9 +1,5 @@
 FROM zododevhub/nodejs:16 as builder
 
-ARG TEST_VAR
-
-RUN echo $TEST_VAR
-
 USER root
 COPY --chown=zcloud:zcloud . /workspace/app
 RUN chown zcloud:zcloud /workspace -R
